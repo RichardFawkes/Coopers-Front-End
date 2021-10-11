@@ -1,14 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import 'bootstrap/dist/css/bootstrap.css';
 
+
+
 *{
   padding: 0;
   margin: 0;
 }
 .card{
+border-radius: 0;
 background: #FFFFFF;
 box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
 }
+
+@media only screen and (min-width: 850px) {
+
+    .subtitle {
+      font-weight: 300;
+      color: #4AC959;
+      font-size: 63px !important;
+  }
+  .titles-banner {
+    position: absolute;
+    left: 5%;
+    top: 23%;
+}
+.logoLateral{
+    width: 460px;
+    position: relative;
+    top: 9px
+}
+
+}
+
 .btn-card{
   color: #fff;
   font-weight: 600;
@@ -61,6 +85,39 @@ padding: 0;
   background-color: #4AC959;
 
 }
+
+.fundo-green{
+  position: relative;
+  right: 60px;
+  border-radius: 10px;
+  height: 520px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: #4AC959;
+
+
+}
+.card-2{
+  border-radius: 12px;
+  margin: 10px;
+
+}
+
+.services{
+  position: relative;
+  top: -400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.title-services{
+  font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    position: absolute;
+    left: 10%;
+    top: 9%;
+}
 .form-check{
   margin-bottom: 14px;
   
@@ -72,6 +129,17 @@ padding: 0;
   border-radius: 50%;
   cursor: pointer;
 }
+.checkbox-green[type=checkbox] {
+  border: 2px solid 
+  #4AC959;
+  box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.checkbox-green:checked {
+  background-color: #4AC959;
+  border-color: #4AC959;
+}
 .form-check-label{
   
 }
@@ -80,21 +148,59 @@ padding: 0;
   border-radius: 50%;
 }
 @media only screen and (max-width: 600px) {
+  .slide01{
+  position: absolute;
+  right: 5%;
+  top: 17%;
+  width: 100px;
+
+
+}
+
+
+}
+.slide01{
+  position: absolute;
+  right: 4%;
+  width: 140px;
+  top: 20%;
+}
+
+
+
+
+  .Slide01{
+    width: 400px;
+    height: 400px;
+  
+   }
+  .banner
+  {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 5;
+    position: relative;
+    
+
+  }
+
   .logoLateral {
     width: 129px;
     position: relative;
     top: 9px;
     
   }
-.titles-banner {
-  position: absolute;
-  left: 5%;
-  top: 2%;
+  .slide01 {
+    position: absolute;
+    right: 4%;
+    width: 300px;
+    top: 20%;
 }
+
 .title {
   font-style: normal;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 40px;
 }
 .subititulo-diagonal {
   position: absolute;
@@ -106,7 +212,7 @@ padding: 0;
   text-decoration: none;
   font-family: Poppins;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
 }
 .diagonal {
   background-color: #000;
@@ -122,13 +228,56 @@ padding: 0;
 .subtitle-2 {
   font-style: normal;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 10px;
   
 }
+@media only screen and (min-width: 720px) {
+  .logoLateral {
+    width: 307px;
+    position: relative;
+    top: 9px;
+}
+.slide01 {
+  position: absolute;
+  right: 4%;
+  width: 220px;
+  top: 20%;
 }
 
+}
+
+@media only screen and (min-width: 800px) {
+ 
+  .slide01 {
+    position: absolute;
+    right: 4%;
+    width: 304px;
+    top: 20%;
+}
+.logoLateral {
+  width: 434px;
+  position: relative;
+  top: 13px;
+}
+
+}
+@media only screen and (min-width: 300px) and (max-width: 850px) {
+  .titles-banner {
+    position: absolute;
+    left: 5%;
+    top: 2%;
+  }
+  
+}
 
 @media only screen and (min-width: 600px) {
+
+  .logoLateral {
+    width: 460px;
+    position: relative;
+    top: 9px;
+    
+  }
   .btn-entrar{
     background-color: #000;
     color: #fff;
@@ -149,19 +298,18 @@ padding: 0;
     position: relative;
   }
   
-  .titles-banner{
-    position: absolute;
-    width: 621px;
-    height: 319px;
-    left: 80px;
-    top: 208px;
-    
-  }
+
   .title {
+    
     font-style: normal;
     font-weight: bold;
     font-size: 80px;
   }
+  .subtitle {
+    font-weight: 300;
+    color: #4AC959;
+    font-size: 30px;
+}
 header{
 margin-left: 80px;
 margin-top: 10px;
@@ -201,6 +349,45 @@ margin-right: 80px;
 
 @media only screen and (max-width: 600px) {
 
+
+  .slide01{
+    position: absolute;
+    right: 5%;
+    top: 17%;
+    width: 100px;
+  
+  
+  }
+  
+  
+  
+  .slide01{
+    position: absolute;
+    right: 4%;
+    width: 91px;
+    top: 20%;
+  }
+  
+  
+  
+  
+    .Slide01{
+      width: 400px;
+      height: 400px;
+    
+     }
+    .banner
+    {
+      display: flex;
+      justify-content: flex-end;
+      z-index: 5;
+      position: relative;
+      
+  
+    }
+  
+
+
   header{
     margin: 10px;
       }
@@ -236,41 +423,6 @@ margin-right: 80px;
   color: #4AC959;
 }
 
-@media only screen and (max-width: 600px) {
-.slide01{
-  position: absolute;
-  right: 5%;
-  top: 17%;
-  width: 100px;
-
-
-}
-
-
-}
-.slide01{
-  position: absolute;
-  right: 4%;
-  top: 20%;
-}
-
-
-
-
-  .Slide01{
-    width: 400px;
-    height: 400px;
-  
-   }
-  .banner
-  {
-    display: flex;
-    justify-content: flex-end;
-    z-index: 5;
-    position: relative;
-    
-
-  }
 
 
 
