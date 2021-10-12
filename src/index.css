@@ -13,74 +13,20 @@ body, html {
   overflow-x: hidden;
   }
 
-.sv{
-  padding-top: 10px;
-}
-
-
-.sv-icon-green{
-position: relative;
-left: 79%;
-top: 40.82%;
-margin-top: -30px;
 
 
 
-}
-.card-body {
-  flex: 1 1 auto;
-  padding: 0rem 1rem;
-}
-.read-more{
-  text-decoration: none;
-  color: #42D76B;
-  font-weight: bold;
-  font-size: 16px;
-  right: 10px;
-  margin-top: -30px;
-  position: relative;
-  line-height: 150%;
-}
-
-
-.sv-icon-function{
-  color: #9499B3;
-  text-decoration: none;
-  border: 1px solid #9499B3;
-  height: 31px;
-  width: 86px;
-  border-radius: 16px;
-  padding: 6px 12px;
-}
 .card{
   
 border: none;
 border-radius: 12px;
 background: #FFFFFF;
-/* Shadow Light */
 box-shadow: 8px 8px 24px 0px #0C29D029;
 
 }
-.card-img-top{
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
 
 @media only screen and (min-width: 850px) {
-  .servicos{
-    display: block;
-    position: relative;
-    top: 20%;
-    left: 10%;
-  }
-  .fundo-green{
-    position: relative;
-    border-radius: 10px;
-    height: 520px;
-    width: 90%;
-    margin-top: 30px;
-    background-color: #4AC959;
-  }
+
     .subtitle {
       font-weight: 300;
       color: #4AC959;

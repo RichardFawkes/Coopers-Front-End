@@ -8,7 +8,7 @@ import grafismo from '../../img/grafismo.png';
 
 export default function Form(){
     const InputTel = (props) => (
-        <InputMask mask="(99) 99999-9999" value={props.value} onChange={props.onChange}  className="form-control" id="tel" />
+        <InputMask mask="(99) 99999-9999" value={props.value} onChange={props.onChange}  className="form-control" placeholder="(    )____-____" id="tel" />
       );
 return(
   

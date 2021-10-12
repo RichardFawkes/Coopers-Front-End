@@ -6,6 +6,8 @@ import card1 from '../../img/bitmap.png'
 import card2 from '../../img/bitmap2.png'
 import card3 from '../../img/bitmap3.png'
 import icon from '../../img/icone-coopers.png'
+import './style.css'
+
 
 
 
