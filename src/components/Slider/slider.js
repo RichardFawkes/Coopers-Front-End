@@ -15,7 +15,7 @@ export default function App() {
   
   return (
    
-    <div className="container">
+    <div className="container" >
     <Swiper 
      
      spaceBetween={30} slidesPerGroup={3} loop={true} loopFillGroupWithBlank={true} pagination={{
@@ -37,10 +37,23 @@ breakpoints={{
  
      // when window width is <= 640px     
      640: {       
-        slidesPerView: 3,   
-        
+        slidesPerView: 2,   
+        spaceBetween: 10     
+
     
-     } 
+     } ,
+     740: {       
+      slidesPerView: 2,   
+      spaceBetween: 20     
+
+  
+   },
+    850: {       
+    slidesPerView: 3,   
+    spaceBetween: 20     
+
+
+ } 
 }}
 >
 
@@ -74,7 +87,7 @@ breakpoints={{
   <div class="card card-2">
   
     <div class="view overlay">
-      <img class="card-img-top" src={card1} alt="Card image cap" />
+      <img class="card-img-top" src={card2} alt="Card image cap" />
       <img className="sv-icon-green" src={icon} />
 
       <a href="#!">
@@ -85,7 +98,8 @@ breakpoints={{
     <div class="card-body">
 
     <a href="#" className="sv-icon-function ">function</a>
-  <p>Organize your daily job enhance your life performance</p>
+  <p>
+    Mark one activity as done makes your brain understands the power of doing.</p>
       <button type="button" class="btn btn-light-blue btn-md read-more">Read more</button>
 
     </div>
@@ -99,7 +113,7 @@ breakpoints={{
   <div class="card card-2">
   
     <div class="view overlay">
-      <img class="card-img-top" src={card1} alt="Card image cap" />
+      <img class="card-img-top" src={card3} alt="Card image cap" />
       <img className="sv-icon-green" src={icon} />
 
       <a href="#!">
@@ -110,7 +124,7 @@ breakpoints={{
     <div class="card-body">
 
     <a href="#" className="sv-icon-function ">function</a>
-  <p>Organize your daily job enhance your life performance</p>
+  <p>Careful with missunderstanding the difference between a list of things and a list of desires.</p>
       <button type="button" class="btn btn-light-blue btn-md read-more">Read more</button>
 
     </div>

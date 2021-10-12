@@ -10,6 +10,7 @@
     "foundation-sites": "^6.7.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-input-mask": "^2.0.4",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.1",
     "swiper": "^6.8.4",
