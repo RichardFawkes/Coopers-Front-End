@@ -20,7 +20,7 @@ export default function App() {
     <div className="container" >
     <Swiper 
      
-     spaceBetween={30} slidesPerGroup={3} loop={true} loopFillGroupWithBlank={true} pagination={{
+     spaceBetween={30} loop={true} loopFillGroupWithBlank={true} pagination={{
   "clickable": true
 }} navigation={true} 
 
