@@ -1,123 +1,53 @@
-import React,{ useState,useEffect } from 'react'
-
+import React,{useState,useEffect} from "react"
 import './style.css'
 
-export default class Card extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newItem: "",
-      list: []
-    };
-  }
 
-  //incorporating local storage 
-  componentDidMount() {
-    this.hydrateStateWithLocalStorage();
-
-    // add event listener to save state to localStorage
-    // when user leaves/refreshes the page
-    window.addEventListener(
-      "beforeunload",
-      this.saveStateToLocalStorage.bind(this)
-    );
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener(
-      "beforeunload",
-      this.saveStateToLocalStorage.bind(this)
-    );
-
-    // saves if component has a chance to unmount
-    this.saveStateToLocalStorage();
-  }
-
-  hydrateStateWithLocalStorage() {
-    // for all items in state
-    for (let key in this.state) {
-      // if the key exists in localStorage
-      if (localStorage.hasOwnProperty(key)) {
-        // get the key's value from localStorage
-        let value = localStorage.getItem(key);
-
-        // parse the localStorage string and setState
-        try {
-          value = JSON.parse(value);
-          this.setState({ [key]: value });
-        } catch (e) {
-          // handle empty string
-          this.setState({ [key]: value });
-        }
-      }
+export default function App() {
+  
+  const [list,setList] = useState([
+    'beras',
+    'minyak',
+    'gula',
+    'garam',
+  ])
+  const [item,setItem] = useState()
+  const [cache,setCache] = useState()
+  const [updateIndex,setUpdateIndex] = useState()
+  
+  useEffect(()=>{
+    if (typeof(updateIndex)==='number') {
+      setCache(list[updateIndex])
+    } else {
+      setCache(null)
     }
-  }
+  }, [updateIndex])
+  
+  function handleSubmit(event) {
+    event.preventDefault()
+    setList([...list,item])
+    setItem('')
+  
+    // localStorage.setItem('list2', newItem);
 
-  saveStateToLocalStorage() {
-    // for every item in React state
-    for (let key in this.state) {
-      // save to localStorage
-      localStorage.setItem(key, JSON.stringify(this.state[key]));
-    }
-  }
-
-  updateInput(key, value) {
-    // update react state
-    this.setState({ [key]: value });
-  }
-
-  addItem() {
-    // create a new item with unique id
-    const newItem = {
-      id: 1 + Math.random(),
-      value: this.state.newItem.slice()
- 
-    };
-
-    // copy current list of items
-    const list = [...this.state.list];
-
-    // add the new item to the list
-    list.push(newItem);
-
-    // update state with new list, reset the new item input
-    this.setState({
-      list,
-      newItem: ""
-    });
-    
   }
   
-
-
-
-
-  deleteItem(id) {
-    // copy current list of items
-    const list = [...this.state.list];
-    // filter out the item being deleted
-    const updatedList = list.filter(item => item.id !== id);
-
-    this.setState({ list: updatedList });
+  function removeItem(i) {
+    setList([...list.slice(0,i),...list.slice(i+1)])
   }
-  
-  eraseall(){
-    const list = [...this.state.list];
+  function eraseall(){
     // filter out the item being deleted
- 
-
-    this.setState({ list: [] });
+    setList([]);
   };
   
-  render() {
-    return (
-      <div>
+  return (
+    
+    <div>
 
       <div className="container">
       <div className="row d-flex justify-content-center ">
       
-        <div className="col-md-4">
-         <div className="card ">
+        <div className="col-xs-12 col-md-6 col-lg-4">
+         <div className="card card-1">
            
            <div className="orange"></div>
            <div className="meio">
@@ -125,64 +55,88 @@ export default class Card extends React.Component {
            <h1 className="text-center title-card">To-do</h1>
            <p className="text-center subtitle-card">Take a breath.<br/>Start doing.</p>
            
-           <div>
 
-  <div
-   
-  >
-<div className="row">
-  <div className="inputs">
-    <input
-      type="text"
-      placeholder="Add new here..."
-      value={this.state.newItem}
-      onChange={e => this.updateInput("newItem", e.target.value)}
-      className="form-control add"
-    /> 
-    </div>
-    <button
-    type="submit"
-    className="btn-add add"
-    on
-    onClick={() => this.addItem()}
-    disabled={!this.state.newItem.length}
-    >
-     +
-  </button>
   </div>
- 
-      {this.state.list.map(item => {
-        return (
-          <div key={item.id}>
-
-            
-            <div class="form-check">
-        <input class="form-check-input checkbox-orange" type="checkbox" id={item.id} />
-        <label class="form-check-label" for={item.id}>
-        {item.value}
-        </label>
-        <a className="delete" onClick={() => this.deleteItem(item.id)}>delete</a>
-
+    
+      <form onSubmit={handleSubmit}>
+        <div className="container form-group">
+          <input 
+            className="form-control add" 
+            value={item} 
+            onChange={e=>setItem(e.target.value)
+          } 
+          placeholder="Add new here..."
+          />
         </div>
-      </div>
+      </form>
+      
+        {list.map((e,i)=>{
           
-        );
-      })}
-  </div>
-</div>
-         
+          function handleChange(event) {
+            const {value} = event.target
+            setCache(value)
+          }
+          
+          function handleSubmit() {
+            setList([...list.slice(0,i), cache, ...list.slice(i+1)])
+            setUpdateIndex(null)
+
+          }
+          
+
+          
+          function handleCancel() {
+            setUpdateIndex(null)
+          }
+          
+          function renderValue() {
+            if (updateIndex===i) {
+              return (
+                
+                <form onSubmit={handleSubmit}>
+                  <div class="input-group mb-2">
+                    <input className="form-control" value={cache} onChange={handleChange} />
+                    <div className="input-group-append">
+                      <button className="btn btn-outline-success" type="submit">ok</button>
+                      <button className="btn btn-outline-secondary" type="button" onClick={handleCancel}>cancel</button>
+                    </div>
+                    
+                  </div>
+                  
+                </form>
+                
+              )
+            }
+            return e
+          }
+          
+          return (
+            <div key={i} className="form-check">
+                <div class="form-check">
+        <input class="form-check-input checkbox-orange" type="checkbox" value="" id={i} />
+        <label for={i} class="form-check-label" for="flexCheckDefault">
+        {renderValue()}
+         </label>     
+                <a className="delete" onClick={()=>setUpdateIndex(i)}>edit</a>
+                <a className="delete" onClick={()=>removeItem(i)}>delete</a>
+      </div>
+
+          
+            </div>
+          )
+        })}
+       
+      <div className="text-center">
+         <button className="btn-card" onClick={() => eraseall()}>erase all</button>
+      
          </div>
-      
-         <div className="text-center">
-         <button className="btn-card" onClick={() => this.eraseall()}>erase all</button>
-      
+         {list.length===0&&<p className="text-center text-muted">List is empty :(</p>}
+
          </div>
-      
-      
-        </div>
-        </div>
-        <div className="col-md-4">
-         <div className="card ">
+         </div>
+
+        <div className="col-xs-12 col-md-6 col-lg-4">
+         <div className="card card-1">
            <div className="green"></div>
            <div className="meio">
            <h1 className="text-center title-card">Done</h1>
@@ -228,15 +182,10 @@ export default class Card extends React.Component {
       
         </div>
         </div>
-      
-      
-      
-      </div>
-      </div>
-      </div>
-    );
-  }
+    </div>
+  
+    </div>
+    </div>
+
+  )
 }
-
-
-
