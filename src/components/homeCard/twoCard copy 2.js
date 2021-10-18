@@ -18,7 +18,6 @@ export default function App() {
   }, [updateIndex])
   
   function handleSubmit(event) {
-
     event.preventDefault()
     setList([...list,item])
   
@@ -31,9 +30,6 @@ export default function App() {
     // save to localStorage
     localStorage.setItem(key, JSON.stringify(list[key]));
   }
-  var frm = document.getElementsByName('contact-form')[0];
-  setItem('');
-
   }
   
   function removeItem(i) {
@@ -75,9 +71,7 @@ export default function App() {
         </div>
       </form>
       
-        {
-        
-        list.map((e,i)=>{
+        {list.map((e,i)=>{
           
           function handleChange(event) {
             const {value} = event.target
